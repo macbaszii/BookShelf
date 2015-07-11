@@ -14,35 +14,41 @@
 
 @interface TestProjectTests : XCTestCase
 
+@property (strong, nonatomic) Book *hungerGames;
+@property (strong, nonatomic) Book *iOSProgramming;
+@property (strong, nonatomic) Book *harryPotter;
+
 @end
 
 @implementation TestProjectTests
 
 - (void)setUp {
     [super setUp];
+    
+    self.hungerGames = [Book bookWithTitle:@"Hunger Games"
+                                   andISBN:@"ashdayd889832dudhwheu"];
+    self.iOSProgramming = [Book bookWithTitle:@"iOS Programming"
+                                      andISBN:@"dsjfs;gkf324rrgioj"];
+    self.harryPotter = [Book bookWithTitle:@"Harry Potter"
+                                   andISBN:@"joi2j3oi4j32o4j234"];
+
 }
 
 - (void)testBookShelfShouldHaveDefaultTwoBooks {
-    Book *hungerGames = [[Book alloc] initWithTitle:@"Hunger Games"
-                                            andISBN:@"ashdayd889832dudhwheu"];
-    Book *iosProgramming = [[Book alloc] initWithTitle:@"iOS Programming"
-                                               andISBN:@"dsjfs;gkf324rrgioj"];
     
-    BookShelf *shelf = [[BookShelf alloc] initWithBooks:@[hungerGames, iosProgramming]];
+    BookShelf *shelf = [[BookShelf alloc] initWithBooks:@[self.hungerGames, self.iOSProgramming]];
     XCTAssertEqual(shelf.books.count, 2);
 }
 
 - (void)testAddBookToShelf {
-    Book *harryPotter = [Book bookWithTitle:@"Harry Potter" andISBN:@"joi2j3oi4j32o4j234"];
-    
     BookShelf *shelf = [[BookShelf alloc] initWithBooks:@[]];
     NSInteger amountBeforeAdd = shelf.books.count;
     
-    [shelf addBook:harryPotter];
+    [shelf addBook:self.harryPotter];
     
     BOOL found = NO;
     for (Book *book in shelf.books) {
-        if ([book.title isEqualToString:harryPotter.title]) {
+        if ([book.title isEqualToString:self.harryPotter.title]) {
             found = YES;
             break;
         }
@@ -53,12 +59,8 @@
 }
 
 - (void)testShouldFoundHungerGamesBookInShelf {
-    Book *hungerGames = [[Book alloc] initWithTitle:@"Hunger Games"
-                                            andISBN:@"ashdayd889832dudhwheu"];
-    Book *iosProgramming = [[Book alloc] initWithTitle:@"iOS Programming"
-                                               andISBN:@"dsjfs;gkf324rrgioj"];
-    
-    BookShelf *shelf = [[BookShelf alloc] initWithBooks:@[hungerGames, iosProgramming]];
+    BookShelf *shelf = [[BookShelf alloc] initWithBooks:@[self.hungerGames,
+                                                          self.iOSProgramming]];
     NSInteger amountBeforeTaken = shelf.books.count;
     Book *foundBook = [shelf bookWithTitle:@"Hunger Games"];
     
@@ -68,25 +70,18 @@
 }
 
 - (void)testShouldNotFoundHarryPotterBookInShelf {
-    Book *hungerGames = [[Book alloc] initWithTitle:@"Hunger Games"
-                                            andISBN:@"ashdayd889832dudhwheu"];
-    BookShelf *shelf = [[BookShelf alloc] initWithBooks:@[hungerGames]];
-    
+    BookShelf *shelf = [[BookShelf alloc] initWithBooks:@[self.hungerGames]];
+
     Book *notFoundBook = [shelf bookWithTitle:@"Harry Potter"];
     XCTAssertNil(notFoundBook);
 }
 
 - (void)testShouldSortByTitleInAscendingOrderAfterAddedNewBook {
-    Book *hungerGames = [[Book alloc] initWithTitle:@"Hunger Games"
-                                            andISBN:@"ashdayd889832dudhwheu"];
-    Book *iosProgramming = [[Book alloc] initWithTitle:@"iOS Programming"
-                                               andISBN:@"dsjfs;gkf324rrgioj"];
+    BookShelf *shelf = [[BookShelf alloc] initWithBooks:@[self.iOSProgramming]];
+    [shelf addBook:self.hungerGames];
     
-    BookShelf *shelf = [[BookShelf alloc] initWithBooks:@[iosProgramming]];
-    [shelf addBook:hungerGames];
-    
-    XCTAssertTrue([((Book *)shelf.books.firstObject).title isEqualToString:hungerGames.title]);
-    XCTAssertTrue([((Book *)shelf.books.lastObject).title isEqualToString:iosProgramming.title]);
+    XCTAssertTrue([((Book *)shelf.books.firstObject).title isEqualToString:self.hungerGames.title]);
+    XCTAssertTrue([((Book *)shelf.books.lastObject).title isEqualToString:self.iOSProgramming.title]);
 }
 
 @end
