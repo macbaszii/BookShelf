@@ -14,6 +14,8 @@
 		DDB2949A1B50C50E0053C4AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB294991B50C50E0053C4AD /* Images.xcassets */; };
 		DDB2949D1B50C50E0053C4AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB2949B1B50C50E0053C4AD /* LaunchScreen.xib */; };
 		DDB294A91B50C50E0053C4AD /* TestProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB294A81B50C50E0053C4AD /* TestProjectTests.m */; };
+		DDB294BA1B510D890053C4AD /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB294B91B510D890053C4AD /* Book.m */; };
+		DDB294BD1B5118700053C4AD /* BookShelf.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB294BC1B5118700053C4AD /* BookShelf.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		DDB294A21B50C50E0053C4AD /* TestProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB294A71B50C50E0053C4AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDB294A81B50C50E0053C4AD /* TestProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestProjectTests.m; sourceTree = "<group>"; };
+		DDB294B81B510D890053C4AD /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		DDB294B91B510D890053C4AD /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		DDB294BB1B5118700053C4AD /* BookShelf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookShelf.h; sourceTree = "<group>"; };
+		DDB294BC1B5118700053C4AD /* BookShelf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookShelf.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,10 @@
 				DDB294911B50C50E0053C4AD /* AppDelegate.m */,
 				DDB294931B50C50E0053C4AD /* ViewController.h */,
 				DDB294941B50C50E0053C4AD /* ViewController.m */,
+				DDB294B81B510D890053C4AD /* Book.h */,
+				DDB294B91B510D890053C4AD /* Book.m */,
+				DDB294BB1B5118700053C4AD /* BookShelf.h */,
+				DDB294BC1B5118700053C4AD /* BookShelf.m */,
 				DDB294961B50C50E0053C4AD /* Main.storyboard */,
 				DDB294991B50C50E0053C4AD /* Images.xcassets */,
 				DDB2949B1B50C50E0053C4AD /* LaunchScreen.xib */,
@@ -219,6 +229,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB294BD1B5118700053C4AD /* BookShelf.m in Sources */,
+				DDB294BA1B510D890053C4AD /* Book.m in Sources */,
 				DDB294951B50C50E0053C4AD /* ViewController.m in Sources */,
 				DDB294921B50C50E0053C4AD /* AppDelegate.m in Sources */,
 				DDB2948F1B50C50E0053C4AD /* main.m in Sources */,
